@@ -17,19 +17,22 @@ class Main extends React.Component {
 
     render() {
         return (
+            <div>
             <main>
                 <section>
                     <CardGroup >
-                        {this.state.data.map(item => (
+                        {this.state.data.map(item => {
+                            return(
                             <HornedBeast
                             title={item.title}
                             imgURL={item.image_url}
                             description={item.description}
                             />
-                        ))}
+                        )})}
                     </CardGroup>
                 </section>
             </main>
+            </div>
         )
     }
 }
