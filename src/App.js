@@ -14,6 +14,8 @@ class App extends React.Component {
     this.state = {
       data: data,
       show: false,
+      numberOfHorns : 'all',
+      beastData: data,
       selectedBeast: {}
     }
   }
@@ -26,15 +28,28 @@ class App extends React.Component {
     this.setState({ selectedBeast, show: true });
   }
 
-  dontShowModal = () => {
+  hideModal = () => {
     this.setState({ show: false });
   }
+
+  //Lab04 :
+
+  filterHorns = (horns) => {
+    if(horns === "All") {
+      this.setState({beastData: data})
+    } else {
+      const array = this.state.data.filter( element => element.horns === horns)
+
+      this.setState({beastData: array})
+    }
+  }
+  
   render() {
     return (
       <div>
         <Header />
         <Main showModal={this.showModal} />
-        <SelectedBeast show={this.state.show} dontShowModal={this.dontShowModal} selectedBeast={this.state.selectedBeast} />
+        <SelectedBeast show={this.state.show} hideModal={this.hideModal} selectedBeast={this.state.selectedBeast} />
         <Footer />
       </div>
     )

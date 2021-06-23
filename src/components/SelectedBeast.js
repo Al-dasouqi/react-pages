@@ -1,4 +1,5 @@
 import React from 'react';
+import Card from 'react-bootstrap/Card';
 import { Button, Modal } from 'react-bootstrap/';
 
 class SelectedBeast extends React.Component {
@@ -27,6 +28,7 @@ class SelectedBeast extends React.Component {
                     </Modal.Footer>
                 </Modal>
             </>
+            
         )
     }
 }

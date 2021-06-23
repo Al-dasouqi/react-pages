@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import SelectedBeast from './SelectedBeast';
+import Form from 'react-bootstrap/Form';
 
 
 class HornedBeast extends React.Component {
@@ -11,9 +12,9 @@ class HornedBeast extends React.Component {
         this.state = {
             likesCounter: 0,
             show: false,
-            imgURL:'',
-            title:'',
-            description:''
+            imgURL: '',
+            title: '',
+            description: ''
         }
     }
 
@@ -24,19 +25,19 @@ class HornedBeast extends React.Component {
         })
     }
 
-    handleShow =()=>{
+    handleShow = () => {
         this.setState({
-            show:true,
-            imgURL:this.props.imgURL,
-            title:this.props.title,
-            description:this.props.description
+            show: true,
+            imgURL: this.props.imgURL,
+            title: this.props.title,
+            description: this.props.description
         })
         console.log(this.imgURL);
     }
 
-    handleClose=()=>{
+    handleClose = () => {
         this.setState({
-            show:false
+            show: false
         })
     }
 
@@ -50,17 +51,24 @@ class HornedBeast extends React.Component {
                         <Card.Text>
                             {this.props.description}
                         </Card.Text>
+                        <Card.Text>
+                            keyword :  {this.props.keyword}
+                        </Card.Text>
+
+                        <Card.Text>
+                            horns :  {this.props.horns}
+                        </Card.Text>
                         <Button variant="primary" onClick={this.likes}>Likes😾: {this.state.likesCounter}</Button>
                     </Card.Body>
                 </Card>
 
-                <SelectedBeast 
-                show={this.state.show}
-                handleClose={this.handleClose}
-                likesCounter={this.state.likesCounter}
-                imgURL={this.state.imgURL}
-                title={this.state.title}
-                description={this.state.description}
+                <SelectedBeast
+                    show={this.state.show}
+                    handleClose={this.handleClose}
+                    likesCounter={this.state.likesCounter}
+                    imgURL={this.state.imgURL}
+                    title={this.state.title}
+                    description={this.state.description}
                 />
             </>
         )
